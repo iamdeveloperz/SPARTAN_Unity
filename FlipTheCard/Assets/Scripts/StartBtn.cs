@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EndText : MonoBehaviour
+public class StartBtn : MonoBehaviour
 {
-    public void RetryGame()
+    public void GameStart()
     {
         SceneManager.LoadScene("MainGame");
     }

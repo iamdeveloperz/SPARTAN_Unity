@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject firstCard;
     public GameObject secondCard;
+
+    public AudioClip match;
+    private AudioSource audioSource;
 
     private float time;
 
@@ -25,6 +29,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1f;
+
+        audioSource = GetComponent<AudioSource>();
 
         int[] rtans = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7 };
         rtans = rtans.OrderBy(item => Random.Range(-1.0f, 1.0f)).ToArray();
@@ -48,12 +54,12 @@ public class GameManager : MonoBehaviour
         time += Time.deltaTime;
         ui_TimeText.text = time.ToString("N2");
 
-        if (time >= 30f)
+        if (time >= 3f)
         {
             ui_EndText.SetActive(true);
             Time.timeScale = 0f;
 
-            time += 30f;
+            time = 30f;
             ui_TimeText.text = time.ToString("N2");
         }
     }
@@ -65,11 +71,13 @@ public class GameManager : MonoBehaviour
 
         if (firstCardImage == secondCardImage)
         {
+            audioSource.PlayOneShot(match);
+
             firstCard.GetComponent<Card>().DestroyCard();
             secondCard.GetComponent<Card>().DestroyCard();
 
             int cardsLeft = GameObject.Find("Cards").transform.childCount;
-            if(cardsLeft == 2)
+            if (cardsLeft == 2)
             {
                 ui_EndText.SetActive(true);
                 Time.timeScale = 0f;
@@ -83,5 +91,11 @@ public class GameManager : MonoBehaviour
 
         firstCard = null;
         secondCard = null;
+    }
+
+
+    public void RetryGame()
+    {
+        SceneManager.LoadScene("MainGame");
     }
 }

@@ -7,13 +7,19 @@ public class Card : MonoBehaviour
     private Animator animator;
     const string a_isOpen = "isOpen";
 
+    public AudioClip flip;
+    private AudioSource audioSource;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void OpenCard()
     {
+        audioSource.PlayOneShot(flip);
+
         animator.SetBool(a_isOpen, true);
 
         transform.Find("Front").gameObject.SetActive(true);
