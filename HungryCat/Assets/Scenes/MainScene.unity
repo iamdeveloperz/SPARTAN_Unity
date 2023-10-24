@@ -1033,7 +1033,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 100}
+  m_SizeDelta: {x: 40, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1735137084
 MonoBehaviour:
@@ -1057,10 +1057,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 35
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1125,6 +1125,7 @@ MonoBehaviour:
   dog: {fileID: 1012136571}
   normalCat: {fileID: 8263189294893731157, guid: ef1c994e31bf73e43ab7f305068f00db, type: 3}
   fatCat: {fileID: 38783568784121933, guid: 62af681f9274bd64ab15d723fb604154, type: 3}
+  pirateCat: {fileID: 5754305106253250573, guid: 7695749a4c348ed45b5d3757362f22a6, type: 3}
   retryBtn: {fileID: 4651655}
   levelText: {fileID: 1735137084}
   levelFront: {fileID: 1970358176}

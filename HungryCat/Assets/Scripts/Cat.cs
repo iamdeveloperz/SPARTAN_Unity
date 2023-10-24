@@ -32,10 +32,12 @@ public class Cat : MonoBehaviour
     {
         if (energy < full)
         {
-            if(type == 0)
+            if (type == 0)
                 transform.position += new Vector3(0.0f, -0.05f, 0.0f);
-            else if(type == 1)
+            else if (type == 1)
                 transform.position += new Vector3(0.0f, -0.03f, 0.0f);
+            else if (type == 2)
+                transform.position += new Vector3(0.0f, -0.1f, 0.0f);
 
             if (transform.position.y < -16.0f)
             {
